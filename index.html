@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Movie search</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Irish+Grover&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inria+Serif:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Irish+Grover&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              irish: ["Irish Grover", "system-ui"],
+              inria: ["Inria Serif", "serif"],
+            },
+          },
+        },
+        plugins: [],
+      };
+    </script>
+    <style type="text/tailwindcss">
+      @layer utilities {
+        .scrollbar::-webkit-scrollbar {
+          width: 3px;
+          height: 5px;
+        }
+
+        .scrollbar::-webkit-scrollbar-track {
+          background: #1c1c1c;
+        }
+
+        .scrollbar::-webkit-scrollbar-thumb {
+          background: #323232;
+        }
+
+        .scrollbar::-webkit-scrollbar-thumb:hover {
+          background: #555; /* Even darker */
+        }
+      }
+    </style>
+  </head>
+  <body class="bg-[#17082A] mx-auto h-screen scrollbar w-[410px]">
+    <div class="m-auto min-h-[100vh] max-w-[410px] bg-[#2C1141]">
+      <header class="container flex justify-around p-2 text-white">
+        <h1 class="font-irish text-2xl ml-[30px]">Maya Movies</h1>
+        <button id="menu-btn" class="text-xl">
+          <i class="fa fa-bars"></i>
+        </button>
+      </header>
+      <section
+        class="search-section m-auto mt-2 flex max-w-80 justify-evenly rounded-xl bg-[#41187a] p-2 shadow-md shadow-slate-900/5"
+      >
+        <input
+          id="search"
+          type="text"
+          placeholder="Search movies here"
+          spellcheck="false"
+          class="border-1 m-1 rounded-2xl border-slate-400 px-4 py-1"
+        />
+        <button><i class="fa fa-search text-2xl text-white"></i></button>
+      </section>
+      <div class="displayed scrollbar mt-4 flex-col">
+        <section class="trending text-white">
+          <h3 class="mx-4 my-2 font-inria">Trending Movies</h3>
+          <div
+            id="movies-container"
+            class="scrollbar flex h-[220px] w-[410px] items-start justify-around space-x-2 overflow-x-scroll overflow-y-hidden bg-gradient-to-b from-[#43856f] to-[#002C1C] px-2 py-2 my-0"
+          >
+            <div
+              id="trending-movie"
+              class="h-[158px] min-w-[113px] rounded-lg bg-[#17082A]"
+            >
+              <img
+                src=""
+                alt=""
+                class="overflow-hidden rounded-lg object-fill"
+              />
+              <p class="text-center text-[14px]">Name</p>
+            </div>
+            <div
+              id="trending-movie"
+              class="h-[158px] min-w-[113px] rounded-lg bg-[#17082A]"
+            >
+              <img
+                src=""
+                alt=""
+                class="overflow-hidden rounded-lg object-fill"
+              />
+              <p class="text-center text-[14px]">Name</p>
+            </div>
+            <div
+              id="trending-movie"
+              class="h-[158px] min-w-[113px] rounded-lg bg-[#17082A]"
+            >
+              <img
+                src=""
+                alt=""
+                class="overflow-hidden rounded-lg object-fill"
+              />
+              <p class="text-center text-[14px]">Name</p>
+            </div>
+            <div
+              id="trending-movie"
+              class="h-[158px] min-w-[113px] rounded-lg bg-[#17082A]"
+            >
+              <img
+                src=""
+                alt=""
+                class="overflow-hidden rounded-lg object-fill"
+              />
+              <p class="text-center text-[14px]">Name</p>
+            </div>
+            <div
+              id="trending-movie"
+              class="h-[158px] min-w-[113px] rounded-lg bg-[#17082A]"
+            >
+              <img
+                src=""
+                alt=""
+                class="overflow-hidden rounded-lg object-fill"
+              />
+              <p class="text-center text-[14px]">Name</p>
+            </div>
+            <div
+              id="trending-movie"
+              class="h-[158px] min-w-[113px] rounded-lg bg-[#17082A]"
+            >
+              <img
+                src=""
+                alt=""
+                class="overflow-hidden rounded-lg object-fill"
+              />
+              <p class="text-center text-[14px]">Name</p>
+            </div>
+            <div
+              id="trending-movie"
+              class="h-[158px] min-w-[113px] rounded-lg bg-[#17082A]"
+            >
+              <img
+                src=""
+                alt=""
+                class="overflow-hidden rounded-lg object-fill"
+              />
+              <p class="text-center text-[14px]">Name</p>
+            </div>
+            <div
+              id="trending-movie"
+              class="h-[158px] min-w-[113px] rounded-lg bg-[#17082A]"
+            >
+              <img
+                src=""
+                alt=""
+                class="overflow-hidden rounded-lg object-fill"
+              />
+              <p class="text-center text-[14px]">Name</p>
+            </div>
+            <div
+              id="trending-movie"
+              class="h-[158px] min-w-[113px] rounded-lg bg-[#17082A]"
+            >
+              <img
+                src=""
+                alt=""
+                class="overflow-hidden rounded-lg object-fill"
+              />
+              <p class="text-center text-[14px]">Name</p>
+            </div>
+            <div
+              id="trending-movie"
+              class="h-[158px] min-w-[113px] rounded-lg bg-[#17082A]"
+            >
+              <img
+                src=""
+                alt=""
+                class="overflow-hidden rounded-lg object-fill"
+              />
+              <p class="text-center text-[14px]">Name</p>
+            </div>
+            <div
+              id="trending-movie"
+              class="h-[158px] min-w-[113px] rounded-lg bg-[#17082A]"
+            >
+              <img
+                src=""
+                alt=""
+                class="overflow-hidden rounded-lg object-fill"
+              />
+              <p class="text-center text-[14px]">Name</p>
+            </div>
+            <div
+              id="trending-movie"
+              class="h-[158px] min-w-[113px] rounded-lg bg-[#17082A]"
+            >
+              <img
+                src=""
+                alt=""
+                class="overflow-hidden rounded-lg object-fill"
+              />
+              <p class="text-center text-[14px]">Name</p>
+            </div>
+            <div
+              id="trending-movie"
+              class="h-[158px] min-w-[113px] rounded-lg bg-[#17082A]"
+            >
+              <img
+                src=""
+                alt=""
+                class="overflow-hidden rounded-lg object-fill"
+              />
+              <p class="text-center text-[14px]">Name</p>
+            </div>
+            <div
+              id="trending-movie"
+              class="h-[158px] min-w-[113px] rounded-lg bg-[#17082A]"
+            >
+              <img
+                src=""
+                alt=""
+                class="overflow-hidden rounded-lg object-fill"
+              />
+              <p class="text-center text-[14px]">Name</p>
+            </div>
+            <div
+              id="trending-movie"
+              class="h-[158px] min-w-[113px] rounded-lg bg-[#17082A]"
+            >
+              <img
+                src=""
+                alt=""
+                class="overflow-hidden rounded-lg object-fill"
+              />
+              <p class="text-center text-[14px]">Name</p>
+            </div>
+            <div
+              id="trending-movie"
+              class="h-[158px] min-w-[113px] rounded-lg bg-[#17082A]"
+            >
+              <img
+                src=""
+                alt=""
+                class="overflow-hidden rounded-lg object-fill"
+              />
+              <p class="text-center text-[14px]">Name</p>
+            </div>
+            <div
+              id="trending-movie"
+              class="h-[158px] min-w-[113px] rounded-lg bg-[#17082A]"
+            >
+              <img
+                src=""
+                alt=""
+                class="overflow-hidden rounded-lg object-fill"
+              />
+              <p class="text-center text-[14px]">Name</p>
+            </div>
+            <div
+              id="trending-movie"
+              class="h-[158px] min-w-[113px] rounded-lg bg-[#17082A]"
+            >
+              <img
+                src=""
+                alt=""
+                class="overflow-hidden rounded-lg object-fill"
+              />
+              <p class="text-center text-[14px]">Name</p>
+            </div>
+            <div
+              id="trending-movie"
+              class="h-[158px] min-w-[113px] rounded-lg bg-[#17082A]"
+            >
+              <img
+                src=""
+                alt=""
+                class="overflow-hidden rounded-lg object-fill"
+              />
+              <p class="text-center text-[14px]">Name</p>
+            </div>
+            <div
+              id="trending-movie"
+              class="h-[158px] min-w-[113px] rounded-lg bg-[#17082A]"
+            >
+              <img
+                src=""
+                alt=""
+                class="overflow-hidden rounded-lg object-fill"
+              />
+              <p class="text-center text-[14px]">Name</p>
+            </div>
+          </div>
+        </section>
+        <section class="series text-white">
+          <h3 class="mx-4 my-2 font-inria">Tv-Series</h3>
+          <div
+            id="movies-container"
+            class="px-2 series scrollbar flex h-[220px] w-[410px] items-start justify-start space-x-2 overflow-x-scroll bg-gradient-to-b from-[#489078] to-[#002C1C] overflow-y-hidden py-2 my-0"
+          >
+            <div
+              id="series-movie"
+              class="h-[158px] min-w-[113px] rounded-lg bg-[#17082A]"
+            >
+              <img
+                src=""
+                alt=""
+                class="overflow-hidden rounded-lg object-fill"
+              />
+              <p class="text-center text-[14px]">Name</p>
+            </div>
+            <div
+              id="series-movie"
+              class="h-[158px] min-w-[113px] rounded-lg bg-[#17082A]"
+            >
+              <img
+                src=""
+                alt=""
+                class="overflow-hidden rounded-lg object-fill"
+              />
+              <p class="text-center text-[14px]">Name</p>
+            </div>
+            <div
+              id="series-movie"
+              class="h-[158px] min-w-[113px] rounded-lg bg-[#17082A]"
+            >
+              <img
+                src=""
+                alt=""
+                class="overflow-hidden rounded-lg object-fill"
+              />
+              <p class="text-center text-[14px]">Name</p>
+            </div>
+            <div
+              id="series-movie"
+              class="h-[158px] min-w-[113px] rounded-lg bg-[#17082A]"
+            >
+              <img
+                src=""
+                alt=""
+                class="overflow-hidden rounded-lg object-fill"
+              />
+              <p class="text-center text-[14px]">Name</p>
+            </div>
+            <div
+              id="series-movie"
+              class="h-[158px] min-w-[113px] rounded-lg bg-[#17082A]"
+            >
+              <img
+                src=""
+                alt=""
+                class="overflow-hidden rounded-lg object-fill"
+              />
+              <p class="text-center text-[14px]">Name</p>
+            </div>
+            <div
+              id="series-movie"
+              class="h-[158px] min-w-[113px] rounded-lg bg-[#17082A]"
+            >
+              <img
+                src=""
+                alt=""
+                class="overflow-hidden rounded-lg object-fill"
+              />
+              <p class="text-center text-[14px]">Name</p>
+            </div>
+            <div
+              id="series-movie"
+              class="h-[158px] min-w-[113px] rounded-lg bg-[#17082A]"
+            >
+              <img
+                src=""
+                alt=""
+                class="overflow-hidden rounded-lg object-fill"
+              />
+              <p class="text-center text-[14px]">Name</p>
+            </div>
+            <div
+              id="series-movie"
+              class="h-[158px] min-w-[113px] rounded-lg bg-[#17082A]"
+            >
+              <img
+                src=""
+                alt=""
+                class="overflow-hidden rounded-lg object-fill"
+              />
+              <p class="text-center text-[14px]">Name</p>
+            </div>
+            <div
+              id="series-movie"
+              class="h-[158px] min-w-[113px] rounded-lg bg-[#17082A]"
+            >
+              <img
+                src=""
+                alt=""
+                class="overflow-hidden rounded-lg object-fill"
+              />
+              <p class="text-center text-[14px]">Name</p>
+            </div>
+            <div
+              id="series-movie"
+              class="h-[158px] min-w-[113px] rounded-lg bg-[#17082A]"
+            >
+              <img
+                src=""
+                alt=""
+                class="overflow-hidden rounded-lg object-fill"
+              />
+              <p class="text-center text-[14px]">Name</p>
+            </div>
+            <div
+              id="series-movie"
+              class="h-[158px] min-w-[113px] rounded-lg bg-[#17082A]"
+            >
+              <img
+                src=""
+                alt=""
+                class="overflow-hidden rounded-lg object-fill"
+              />
+              <p class="text-center text-[14px]">Name</p>
+            </div>
+            <div
+              id="series-movie"
+              class="h-[158px] min-w-[113px] rounded-lg bg-[#17082A]"
+            >
+              <img
+                src=""
+                alt=""
+                class="overflow-hidden rounded-lg object-fill"
+              />
+              <p class="text-center text-[14px]">Name</p>
+            </div>
+            <div
+              id="series-movie"
+              class="h-[158px] min-w-[113px] rounded-lg bg-[#17082A]"
+            >
+              <img
+                src=""
+                alt=""
+                class="overflow-hidden rounded-lg object-fill"
+              />
+              <p class="text-center text-[14px]">Name</p>
+            </div>
+            <div
+              id="series-movie"
+              class="h-[158px] min-w-[113px] rounded-lg bg-[#17082A]"
+            >
+              <img
+                src=""
+                alt=""
+                class="overflow-hidden rounded-lg object-fill"
+              />
+              <p class="text-center text-[14px]">Name</p>
+            </div>
+            <div
+              id="series-movie"
+              class="h-[158px] min-w-[113px] rounded-lg bg-[#17082A]"
+            >
+              <img
+                src=""
+                alt=""
+                class="overflow-hidden rounded-lg object-fill"
+              />
+              <p class="text-center text-[14px]">Name</p>
+            </div>
+            <div
+              id="series-movie"
+              class="h-[158px] min-w-[113px] rounded-lg bg-[#17082A]"
+            >
+              <img
+                src=""
+                alt=""
+                class="overflow-hidden rounded-lg object-fill"
+              />
+              <p class="text-center text-[14px]">Name</p>
+            </div>
+            <div
+              id="series-movie"
+              class="h-[158px] min-w-[113px] rounded-lg bg-[#17082A]"
+            >
+              <img
+                src=""
+                alt=""
+                class="overflow-hidden rounded-lg object-fill"
+              />
+              <p class="text-center text-[14px]">Name</p>
+            </div>
+            <div
+              id="series-movie"
+              class="h-[158px] min-w-[113px] rounded-lg bg-[#17082A]"
+            >
+              <img
+                src=""
+                alt=""
+                class="overflow-hidden rounded-lg object-fill"
+              />
+              <p class="text-center text-[14px]">Name</p>
+            </div>
+            <div
+              id="series-movie"
+              class="h-[158px] min-w-[113px] rounded-lg bg-[#17082A]"
+            >
+              <img
+                src=""
+                alt=""
+                class="overflow-hidden rounded-lg object-fill"
+              />
+              <p class="text-center text-[14px]">Name</p>
+            </div>
+          </div>
+        </section>
+        <section class="latest text-white">
+          <h3 class="mx-4 my-2 font-inria">Latest Movies</h3>
+          <div
+            id="movies-container"
+            class="px-2 latest scrollbar flex h-[220px] w-[410px] items-start justify-start overflow-x-scroll overflow-y-hidden bg-gradient-to-b from-[#488f77] to-[#002C1C] space-x-2 py-2 my-0"
+          >
+            <div
+              id="latest-movie"
+              class="h-[158px] min-w-[113px] rounded-lg bg-[#17082A]"
+            >
+              <img
+                src=""
+                alt=""
+                class="overflow-hidden rounded-lg object-fill"
+              />
+              <p class="text-center text-[14px]">Name</p>
+            </div>
+            <div
+              id="latest-movie"
+              class="h-[158px] min-w-[113px] rounded-lg bg-[#17082A]"
+            >
+              <img
+                src=""
+                alt=""
+                class="overflow-hidden rounded-lg object-fill"
+              />
+              <p class="text-center text-[14px]">Name</p>
+            </div>
+            <div
+              id="latest-movie"
+              class="h-[158px] min-w-[113px] rounded-lg bg-[#17082A]"
+            >
+              <img
+                src=""
+                alt=""
+                class="overflow-hidden rounded-lg object-fill"
+              />
+              <p class="text-center text-[14px]">Name</p>
+            </div>
+            <div
+              id="latest-movie"
+              class="h-[158px] min-w-[113px] rounded-lg bg-[#17082A]"
+            >
+              <img
+                src=""
+                alt=""
+                class="overflow-hidden rounded-lg object-fill"
+              />
+              <p class="text-center text-[14px]">Name</p>
+            </div>
+            <div
+              id="latest-movie"
+              class="h-[158px] min-w-[113px] rounded-lg bg-[#17082A]"
+            >
+              <img
+                src=""
+                alt=""
+                class="overflow-hidden rounded-lg object-fill"
+              />
+              <p class="text-center text-[14px]">Name</p>
+            </div>
+            <div
+              id="latest-movie"
+              class="h-[158px] min-w-[113px] rounded-lg bg-[#17082A]"
+            >
+              <img
+                src=""
+                alt=""
+                class="overflow-hidden rounded-lg object-fill"
+              />
+              <p class="text-center text-[14px]">Name</p>
+            </div>
+            <div
+              id="latest-movie"
+              class="h-[158px] min-w-[113px] rounded-lg bg-[#17082A]"
+            >
+              <img
+                src=""
+                alt=""
+                class="overflow-hidden rounded-lg object-fill"
+              />
+              <p class="text-center text-[14px]">Name</p>
+            </div>
+            <div
+              id="latest-movie"
+              class="h-[158px] min-w-[113px] rounded-lg bg-[#17082A]"
+            >
+              <img
+                src=""
+                alt=""
+                class="overflow-hidden rounded-lg object-fill"
+              />
+              <p class="text-center text-[14px]">Name</p>
+            </div>
+            <div
+              id="latest-movie"
+              class="h-[158px] min-w-[113px] rounded-lg bg-[#17082A]"
+            >
+              <img
+                src=""
+                alt=""
+                class="overflow-hidden rounded-lg object-fill"
+              />
+              <p class="text-center text-[14px]">Name</p>
+            </div>
+            <div
+              id="latest-movie"
+              class="h-[158px] min-w-[113px] rounded-lg bg-[#17082A]"
+            >
+              <img
+                src=""
+                alt=""
+                class="overflow-hidden rounded-lg object-fill"
+              />
+              <p class="text-center text-[14px]">Name</p>
+            </div>
+            <div
+              id="latest-movie"
+              class="h-[158px] min-w-[113px] rounded-lg bg-[#17082A]"
+            >
+              <img
+                src=""
+                alt=""
+                class="overflow-hidden rounded-lg object-fill"
+              />
+              <p class="text-center text-[14px]">Name</p>
+            </div>
+            <div
+              id="latest-movie"
+              class="h-[158px] min-w-[113px] rounded-lg bg-[#17082A]"
+            >
+              <img
+                src=""
+                alt=""
+                class="overflow-hidden rounded-lg object-fill"
+              />
+              <p class="text-center text-[14px]">Name</p>
+            </div>
+            <div
+              id="latest-movie"
+              class="h-[158px] min-w-[113px] rounded-lg bg-[#17082A]"
+            >
+              <img
+                src=""
+                alt=""
+                class="overflow-hidden rounded-lg object-fill"
+              />
+              <p class="text-center text-[14px]">Name</p>
+            </div>
+            <div
+              id="latest-movie"
+              class="h-[158px] min-w-[113px] rounded-lg bg-[#17082A]"
+            >
+              <img
+                src=""
+                alt=""
+                class="overflow-hidden rounded-lg object-fill"
+              />
+              <p class="text-center text-[14px]">Name</p>
+            </div>
+            <div
+              id="latest-movie"
+              class="h-[158px] min-w-[113px] rounded-lg bg-[#17082A]"
+            >
+              <img
+                src=""
+                alt=""
+                class="overflow-hidden rounded-lg object-fill"
+              />
+              <p class="text-center text-[14px]">Name</p>
+            </div>
+            <div
+              id="latest-movie"
+              class="h-[158px] min-w-[113px] rounded-lg bg-[#17082A]"
+            >
+              <img
+                src=""
+                alt=""
+                class="overflow-hidden rounded-lg object-fill"
+              />
+              <p class="text-center text-[14px]">Name</p>
+            </div>
+            <div
+              id="latest-movie"
+              class="h-[158px] min-w-[113px] rounded-lg bg-[#17082A]"
+            >
+              <img
+                src=""
+                alt=""
+                class="overflow-hidden rounded-lg object-fill"
+              />
+              <p class="text-center text-[14px]">Name</p>
+            </div>
+            <div
+              id="latest-movie"
+              class="h-[158px] min-w-[113px] rounded-lg bg-[#17082A]"
+            >
+              <img
+                src=""
+                alt=""
+                class="overflow-hidden rounded-lg object-fill"
+              />
+              <p class="text-center text-[14px]">Name</p>
+            </div>
+            <div
+              id="latest-movie"
+              class="h-[158px] min-w-[113px] rounded-lg bg-[#17082A]"
+            >
+              <img
+                src=""
+                alt=""
+                class="overflow-hidden rounded-lg object-fill"
+              />
+              <p class="text-center text-[14px]">Name</p>
+            </div>
+          </div>
+        </section>
+      </div>
+      <div class="hide popup-model scrollbar">
+        <div class="h-40 w-40 rounded-2xl bg-[#363636] mb-20">
+          <img
+            id="popup-modal-img"
+            src=""
+            alt="Poster"
+            class="rounded-2xl object-fill overflow-hidden"
+          />
+        </div>
+        <div class="inner-modal">
+          <p id="title">Title - Inception</p>
+          <p id="genre">Genre - Action, sci-fi</p>
+          <p id="year">Year - 2010</p>
+          <p id="overview">
+            Overview - Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+            Sequi ipsa eius voluptatem, perspiciatis atque repudiandae.
+          </p>
+        </div>
+        <div class="buttons">
+          <button class="favorite-btn">Add to favorite</button>
+          <button class="back-btn">Back</button>
+        </div>
+        <div class="favorite-section hide">
+          <p class="success-message">Added to favorite</p>
+        </div>
+      </div>
+      <div
+        id="menu-section"
+        class="hide fixed top-0 bottom-0 left-0 right-0 z-50 m-auto min-h-[100vh] w-[410px] bg-[#2C1141]"
+      >
+        <div
+          class="m-auto mt-10 h-[40px] w-[287px] rounded-2xl bg-[#00925D] text-center"
+        >
+          <h1 class="p-1 font-irish text-2xl text-white">Menu</h1>
+        </div>
+        <ul class="mt-20 flex-col space-y-4 font-inria text-white">
+          <div
+            id="dark-theme"
+            class="flex justify-between border-t-2 border-[#6644B8] pt-4 pl-4"
+          >
+            <h2>Dark Theme</h2>
+            <div
+              class="mr-9 bg-[#00925D] rounded-3xl w-11 h-5 ring-1 ring-[#00925D]"
+            >
+              <div
+                class="bg-[#17201d] w-7 h-5 rounded-3xl translate-x-[55%]"
+              ></div>
+            </div>
+          </div>
+          <div id="favorites" class="pl-4 border-t-2 border-[#6644B8] pt-4">
+            Favorite Movies
+          </div>
+          <div id="best-movies" class="pl-4 border-t-2 border-[#6644B8] pt-4">
+            Best movies of all time
+          </div>
+          <div
+            id="about-us"
+            class="pl-4 border-t-2 border-b-2 border-t-[#6644B8] pt-4 border-b-[#6644B8] pb-3"
+          >
+            About Us
+          </div>
+        </ul>
+        <div
+          id="close-menu"
+          class="absolute flex justify-center items-center rounded-full w-10 h-10 bg-[#00925D] top-[85%] left-[43%]"
+        >
+          <i class="fa fa-times text-white"></i>
+        </div>
+      </div>
+      <div
+        class="best-movies-section hide scrollbar m-auto max-h-[100vh] w-[410px] overflow-y-scroll bg-[#363636]"
+      >
+        <h2
+          class="relative text-center font-irish text-white after:absolute after:left-[39%] after:mt-1 after:block after:h-[2px] after:w-24 after:bg-[#D9D9D9] after:content-['']"
+        >
+          Best movies
+        </h2>
+        <div class="mt-14 flex items-center justify-center">
+          <div class="m-auto grid grid-cols-2 gap-[50px]">
+            <div class="h-[190x] w-[120px] rounded-2xl bg-[#D9D9D9]">
+              <img
+                class="m-2 overflow-hidden rounded-2xl object-contain"
+                src=""
+                alt=""
+              />
+              <p class="text-center font-inria text-[#2C1141]">name</p>
+            </div>
+
+            <div class="h-[190x] w-[120px] rounded-2xl bg-[#D9D9D9]">
+              <img
+                class="m-2 overflow-hidden rounded-2xl object-contain"
+                src=""
+                alt=""
+              />
+              <p class="text-center font-inria text-[#2C1141]">name</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="about-page hide m-auto h-[600px] w-[300px] bg-[#363636] text-center text-white rounded-3xl absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] p-2"
+      >
+        <h1 class="pt-2 font-irish text-2xl">About Maya Movies</h1>
+        <p class="my-10 px-4 text-left font-inria text-[16px]">
+          Welcome to Maya Movies, your go-to app for discovering movies and
+          getting all the essential information you need! Our simple yet
+          powerful movie search app is designed to provide users with useful and
+          accurate data about their favorite films, utilizing reliable
+          international APIs.
+        </p>
+        <p class="px-4 text-left font-inria text-[16px]">
+          We offer a variety of movie details based on your preferences,
+          including release dates, genres, and much more. Love a movie? Easily
+          add it to your favorites section to keep track of your personal
+          collection!
+        </p>
+        <button id="back-home-about" class="back-btn mt-6">Back</button>
+      </div>
+      <div
+        class="hide favorite-menu-section scrollbar mx-auto max-h-[100vh] w-[380px] overflow-y-scroll bg-[#17082A] rounded-2xl absolute top-[15%] left-[50%] translate-x-[-50%] translate-y[-50%] p-4 flex-col justify-center items-center"
+      >
+        <h2
+          class="mt-6 relative text-center font-irish text-white after:absolute after:left-[36%] after:mt-1 after:block after:h-[2px] after:w-24 after:bg-[#D9D9D9] after:content-['']"
+        >
+          Favorite Movies
+        </h2>
+        <div class="mt-14">
+          <div
+            id="favorite-container"
+            class="m-auto grid grid-cols-2 gap-[10px] p-2 justify-between content-between"
+          ></div>
+        </div>
+        <button id="backHome" class="back-btn ml-[100px] my-4">Back</button>
+      </div>
+      <div
+        class="search-result-container hide mx-auto h-[100vh] w-[410px] bg-[#040303] border-2 border-slate-800 pt-10"
+      >
+        <section
+          class="mx-auto flex max-w-80 justify-evenly rounded-xl border-2 bg-[#3d324d] p-2 shadow-md shadow-slate-900/5"
+        >
+          <input
+            id="search-movies"
+            type="text"
+            placeholder="Search movies here"
+            spellcheck="false"
+            class="border-1 m-1 rounded-2xl border-slate-400 px-4 py-1"
+          />
+          <button class="search-btn">
+            <i class="fa fa-search text-2xl text-white"></i>
+          </button>
+        </section>
+        <div
+          id="movieMainContainer"
+          class="mx-5 mt-16 grid grid-cols-2 gap-4 max-h-[75vh] text-center overflow-y-scroll text-white"
+        ></div>
+      </div>
+      <div
+        id="close-search"
+        class="absolute flex justify-center items-center rounded-full w-10 h-10 bg-[#00925D] top-[5px] left-[5%]"
+      >
+        <i class="fa fa-times text-white"></i>
+      </div>
+    </div>
+    <div class="transition flex" style="display: none">
+      <div
+        class="fixed top-0 bottom-0 left-0 right-0 bg-[rgba(0,0,0,.6)] z-150"
+      ></div>
+      <h1
+        class="absolute top-[20%] text-center text-4xl text-white mx-auto font-irish z-200"
+      >
+        Maya Movies
+      </h1>
+      <div class="circle">
+        <div class="rotate">
+          <i class="fas fa-circle"></i>
+        </div>
+        <div class="rotate">
+          <i class="fas fa-circle"></i>
+        </div>
+        <div class="rotate">
+          <i class="fas fa-circle"></i>
+        </div>
+        <div class="rotate">
+          <i class="fas fa-circle"></i>
+        </div>
+      </div>
+    </div>
+    <div
+      class="search-detail hide sm:w-full mx-auto max-h-[100vh] w-[420px] bg-[#040303] absolute top-[10%] left-0"
+    >
+      <div class="rounded-xl m-2 bg-yellow-500 p-1">
+        <iframe
+          id="iframe"
+          title="You tube enbeding"
+          class="rounded-lg bg-slate-300"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+          src=""
+          width="100%"
+          height="300px"
+          frameborder="0"
+        ></iframe>
+      </div>
+      <div class="info bg-[#271a3a]">
+        <h1
+          id="movie-detal-title"
+          class="px-5 py-[25px] font-irish text-[20px] text-white"
+        >
+          name
+        </h1>
+        <div
+          class="scrollbar m-2 flex max-w-[400px] gap-3 overflow-x-scroll px-4 font-inria text-white"
+          id="genre-holder"
+        ></div>
+        <div class="detail-desc m-h-[60vh] p-4 font-inria text-white">
+          <h2 class="mb-4 font-irish font-semibold">Description</h2>
+          <p class="font-inria text-slate-100">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo quae
+            vel optio rem illum quisquam est adipisci! Iure, corrupti
+            distinctio!
+          </p>
+        </div>
+        <div class="realease-date p-4 text-white">
+          <h2 class="mb-4 font-irish font-semibold">Released date</h2>
+          <p class="font-inria text-slate-100 detail-released-date">2010</p>
+        </div>
+        <div class="buttons mx-[60px] sm:mx-[170px] pb-10">
+          <button id="detail-add-fav" class="favorite-btn">
+            Add to favorite
+          </button>
+          <button id="movies-detail-back" class="back-btn">Back</button>
+        </div>
+      </div>
+      <footer
+        class="w-full text-center text-white opacity-75 pt-2 pb-0 bottom-4"
+      >
+        <p>MAYA MOVIES @2024 ©</p>
+      </footer>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
